@@ -40,3 +40,53 @@ p {
 a {
     color: #d0ff00;
 }
+
+/* styles.css */
+body {
+    background-color: #dbe913; 
+    color: #1900ff; 
+    font-family: Courier, monospace; /* Font style */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #1900ff; /* Blue color for headings */
+}
+
+form {
+    background-color: #ffffff00; /* White background for form */
+    padding: 20px;
+    border-radius: 5px;
+
+}
+
+input[type="text"],
+textarea {
+    width: 100%; /* Full-width input fields */
+    padding: 10px;
+    border: 1px solid #2200ff; /* Light gray border for inputs */
+    border-radius: 0px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #2200ff; /* Blue background for submit button */
+    color: white; /* White text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#comments p {
+    background-color: #ffffff00; /* White background for comments */
+    border: 1px solid #dddddd00; /* Light gray border */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}

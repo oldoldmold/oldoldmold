@@ -1,0 +1,42 @@
+body {
+    font-family: 'Courier New', 'monospace';
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-weight: 100;
+    background-color: #0400ff;
+}
+
+header {
+    background: #0400ff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+p {
+    color: #d0ff00; 
+}
+
+
+a {
+    color: #d0ff00;
+}

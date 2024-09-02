@@ -2,18 +2,16 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST['name']);
     $comment = htmlspecialchars($_POST['comment']);
-    
-    // Open the file to append the comment
-    $file = fopen('comments.txt', 'a');
-    
-    // Write the comment to the file
-    fwrite($file, "$name: $comment\n");
-    
-    // Close the file
-    fclose($file);
-    
-    // Redirect back to the comments page
-    header("Location: comments.html");
-    exit();
+
+    // Handle form submission, e.g., save to file or database
+    $commentsFile = 'comments.txt';
+    $commentEntry = "$name: $comment\n";
+
+    file_put_contents($commentsFile, $commentEntry, FILE_APPEND);
+    echo "Comment submitted successfully!";
+} else {
+    // If not a POST request, display an error
+    echo "Invalid request method.";
 }
 ?>
+

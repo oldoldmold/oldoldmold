@@ -1,14 +1,9 @@
 <?php
-// Check if the comments file exists
-if (file_exists('comments.txt')) {
-    // Read the file contents
-    $comments = file('comments.txt');
-    
-    // Display each comment
-    foreach ($comments as $comment) {
-        echo "<p>" . htmlspecialchars($comment) . "</p>";
-    }
+// Read the contents of the comments file and display them
+$file = 'comments.txt';
+if (file_exists($file)) {
+    echo file_get_contents($file);
 } else {
-    echo "<p>No comments yet.</p>";
+    echo "No comments yet.";
 }
 ?>

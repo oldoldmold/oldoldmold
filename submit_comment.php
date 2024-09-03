@@ -1,17 +1,19 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the form data
     $name = htmlspecialchars($_POST['name']);
     $comment = htmlspecialchars($_POST['comment']);
 
-    // Handle form submission, e.g., save to file or database
-    $commentsFile = 'comments.txt';
-    $commentEntry = "$name: $comment\n";
+    // Append the comment to a file (or insert it into a database)
+    $file = 'comments.txt';
+    $current = file_get_contents($file);
+    $current .= "<strong>$name</strong>: $comment<br>\n";
+    file_put_contents($file, $current);
 
-    file_put_contents($commentsFile, $commentEntry, FILE_APPEND);
-    echo "Comment submitted successfully!";
-} else {
-    // If not a POST request, display an error
-    echo "Invalid request method.";
+    // Redirect back to the comments page
+    header('Location: comments.html');
+    exit();
 }
 ?>
+
 

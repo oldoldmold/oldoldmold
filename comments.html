@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDKs -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+      import { getFirestore, collection, addDoc, query, orderBy, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+      
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+          apiKey: "AIzaSyBrBabXZs-VVrF3Lua1C4E5qxwCIzmkuH0",
+          authDomain: "comments-7c324.firebaseapp.com",
+          projectId: "comments-7c324",
+          storageBucket: "comments-7c324.appspot.com",
+          messagingSenderId: "617355691709",
+          appId: "1:617355691709:web:d7b03e2f4b2912ade819d4",
+          measurementId: "G-LY0VKM82LY"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const commentsRef = collection(db, 'comments');
+      
+      // Function to display comments
+      async function displayComments() {
+          const commentsDiv = document.getElementById('comments');
+          commentsDiv.innerHTML = '';
+          try {
+              const q = query(commentsRef, orderBy('timestamp'));
+              const querySnapshot = await getDocs(q);
+              querySnapshot.forEach((doc) => {
+                  const data = doc.data();
+                  const commentElement = document.createElement('p');
+                  commentElement.innerHTML = `<strong>${data.name}</strong>: ${data.comment}`;
+                  commentsDiv.appendChild(commentElement);
+              });
+          } catch (error) {
+              console.error("Error fetching comments: ", error);
+          }
+      }
+
+      // Handle form submission
+      document.getElementById('commentForm').addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const name = document.getElementById('name').value;
+          const comment = document.getElementById('comment').value;
+
+          try {
+              await addDoc(commentsRef, {
+                  name: name,
+                  comment: comment,
+                  timestamp: serverTimestamp()
+              });
+              document.getElementById('commentForm').reset();
+              displayComments();
+          } catch (error) {
+              console.error("Error adding comment: ", error);
+          }
+      });
+
+      // Initial display of comments
+      displayComments();
+    </script>
+</head>
+<body>
+    <h1>Comments Page</h1>
+    <nav>
+        <a href="index.html">home</a> | 
+        <a href="about.html">about</a> | 
+        <a href="contact.html">contact</a> 
+        
+    </nav>
+    <form id="commentForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="5" cols="40" required></textarea><br><br>
+        <input type="submit" value="Submit Comment">
+    </form>
+    <div id="comments">
+        <!-- Comments will be displayed here -->
+    </div>
+</body>
+</html>

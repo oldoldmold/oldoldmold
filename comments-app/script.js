@@ -1,8 +1,12 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+import { getFirestore, collection, addDoc, query, orderBy, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBrBabXZs-VVrF3Lua1C4E5qxwCIzmkuH0",
     authDomain: "comments-7c324.firebaseapp.com",
-    databaseURL: "https://comments-7c324-default-rtdb.firebaseio.com",
     projectId: "comments-7c324",
     storageBucket: "comments-7c324.appspot.com",
     messagingSenderId: "617355691709",
@@ -15,46 +19,49 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 // Initialize Firestore
-const db = firebase.firestore();
+const db = getFirestore(app);
 
 // Reference to the comments collection
-const commentsRef = db.collection('comments');
+const commentsRef = collection(db, 'comments');
 
 // Get the form and comments div
 const form = document.getElementById('commentForm');
 const commentsDiv = document.getElementById('comments');
 
 // Function to display comments
-function displayComments() {
+async function displayComments() {
     commentsDiv.innerHTML = '';
-    commentsRef.orderBy('timestamp').get().then((snapshot) => {
-        snapshot.forEach((doc) => {
+    try {
+        const q = query(commentsRef, orderBy('timestamp'));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
             const data = doc.data();
             const commentElement = document.createElement('p');
             commentElement.innerHTML = `<strong>${data.name}</strong>: ${data.comment}`;
             commentsDiv.appendChild(commentElement);
         });
-    }).catch((error) => {
+    } catch (error) {
         console.error("Error fetching comments: ", error);
-    });
+    }
 }
 
 // Handle form submission
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const name = document.getElementById('name').value;
     const comment = document.getElementById('comment').value;
 
-    commentsRef.add({
-        name: name,
-        comment: comment,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    }).then(() => {
+    try {
+        await addDoc(commentsRef, {
+            name: name,
+            comment: comment,
+            timestamp: serverTimestamp()
+        });
         form.reset();
         displayComments();
-    }).catch((error) => {
+    } catch (error) {
         console.error("Error adding comment: ", error);
-    });
+    }
 });
 
 // Initial display of comments

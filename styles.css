@@ -80,7 +80,10 @@ input[type="submit"] {
     margin-top: 20px;
 }
 
-
+/* Apply the custom cursor to the entire page */
+body {
+    cursor: url('images/pumpk.png'), auto; /* Fallback to default cursor if the image can't be loaded */
+}
 
 
 

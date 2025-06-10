@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the scratching tongues</title>
+  <style>
+    body {
+      background-color: rgb(9, 0, 129);
+      font-family: 'Courier New', 'monospace';
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 250px;
+      background-color: black;
+      border-right: 2px dashed red;
+      padding: 20px;
+      overflow-y: auto;
+      color: white;
+    }
+
+    marquee {
+      color: red;
+      font-size: 16px;
+    }
+
+    h2 {
+      font-weight: lighter;
+      color: white;
+      text-align: center;
+    }
+
+    .aligned-text {
+      position: fixed;
+      left: 300px;
+      top: 35px;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    img {
+      cursor: pointer;
+    }
+  </style>
+ 
+
+</head>
+<body>
+
+  <div class="container">
+    <marquee behavior="scroll">Welcome to the Official Website of Scratching Tongues</marquee>
+    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto;" />
+    <img 
+ 
+  />
+
+    <h2>I'm thinking upcoming shows could go here</h2>
+    <h2>and maybe some links to socials/streaming at the bottom of this container</h2>
+  </div>
+
+  <div class="aligned-text"> *
+    <p>[example] scratching tongues is (your names)</p>
+    <p>located in Portland, Oregon</p>
+    <p></p>
+    <p>*</p>
+
+    <!-- 👇 Clickable image -->
+    <img 
+      id="red-image"
+      src="images/scratch/red.jpg" 
+      style="width: 500px; height: auto; border: 2px dashed red;"
+      onclick="changeRedImage()"
+    />
+
+    <p>
+      and then down here it could be cover artwork that leads to that album/song on bandcamp. If I can figure it out, I might also be able to put a live player directly on the page but no promises lol
+    </p>
+    <p>I could also add more pages to navigate to like a contact page, updates page, and/or anything else you'd like</p>
+  </div>
+
+  <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee"><img src="images/scratch/feverbee.JPG" style="width: 250px; height: auto;"></a>
+
+  <!-- 🔁 JavaScript to toggle image -->
+  <script>
+    // Array of image paths to cycle through
+    const imageSources = [
+      "images/scratch/red.jpg",
+      "images/scratch/bw.jpg",
+      "images/scratch/band.jpg",
+      "images/scratch/guitars.jpg",
+      "images/scratch/keys.jpg",
+      "images/scratch/drums.jpg"
+    ];
+  
+    let currentImageIndex = 0;
+  
+    function changeRedImage() {
+      const img = document.getElementById("red-image");
+      
+      // Increment the index
+      currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+  
+      // Set the new image
+      img.src = imageSources[currentImageIndex];
+    }
+  </script>
+
+</body>
+</html>

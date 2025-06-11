@@ -8,9 +8,11 @@
       font-family: 'Courier New', monospace;
       margin: 0;
       padding: 0;
-      cursor: url('images/scratch/cursor.png')
+      cursor: url('images/scratch/cursor.png'), auto;
     }
-
+    img {
+      cursor: none; /* hide system cursor over image */
+    }
     .container {
       position: fixed;
       top: 0;
@@ -48,10 +50,15 @@
       font-size: 16px;
     }
 
-    img {
-     
-     cursor: pointer
+    #custom-cursor {
+      position: fixed;
+      width: 32px; /* adjust to your image size */
+      height: 32px;
+      pointer-events: none; /* So it doesn't block clicks */
+      z-index: 9999;
+      display: none;
     }
+    
   </style>
 </head>
 <body>
@@ -72,7 +79,6 @@
       <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee">I'm in Love with a Fever Bee by Scratching Tongues</a>
     </iframe>
     </div>
-    <p></p>
   </div>
 
   <div class="second-container">
@@ -87,23 +93,42 @@
       style="width: 500px; height: auto; border: 2px dashed red;"
       onclick="changeRedImage()"
     />
-<p>*</p>
+    <p>*</p>
+    <a href="https://www.instagram.com/scratchingtongues/" target="_blank">
+      <img src="images/scratch/ig.PNG" alt="Clickable Image" style="width: 50px; height: auto;">
+    </a>
     <a href="https://scratchingtongues.bandcamp.com" target="_blank">
       <img src="images/scratch/bc.PNG" alt="Clickable Image" style="width: 50px; height: auto;">
     </a>
-    <a href="https://www.instagram.com/scratchingtongues/" target="_blank">
-      <img src="images/scratch/ig.PNG" alt="Clickable Image" style="width: 50px; height: auto;">
-      </a>
-     
-   
+    <a href="https://open.spotify.com/artist/3FvJUBZdNzkRa4IEHKXNAr?si=eEyqzenITGyDtjJ9HSb2QQ" target="_blank">
+      <img src="images/scratch/spotify.png" alt="Clickable Image" style="width: 50px; height: auto;">
+    </a>
+    <a href="https://music.apple.com/ca/artist/scratching-tongues/1514594194" target="_blank">
+      <img src="images/scratch/apple.png" alt="Clickable Image" style="width: 50px; height: auto;">
+    </a>
 
-
-
-
-   
+    <img id="custom-cursor" src="images/scratch/cokecan.gif" alt="Custom Cursor">
   </div>
 
   <script>
+    const cursor = document.getElementById('custom-cursor');
+
+    // Move the custom cursor with the mouse
+    document.addEventListener('mousemove', function(e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    // Show custom cursor only when hovering over images
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('mouseenter', () => {
+        cursor.style.display = 'block';
+      });
+      img.addEventListener('mouseleave', () => {
+        cursor.style.display = 'none';
+      });
+    });
+
     const imageSources = [
       "images/scratch/red.jpg",
       "images/scratch/bw.jpg",

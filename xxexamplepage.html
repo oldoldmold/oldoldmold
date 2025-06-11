@@ -1,112 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>the scratching tongues</title>
+  <meta charset="UTF-8">
+  <title>Test Custom Cursor</title>
   <style>
     body {
-      background-color: rgb(9, 0, 129);
-      font-family: 'Courier New', monospace;
       margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 250px;
-      background-color: black;
-      border-right: 2px dashed red;
-      padding: 20px;
-      overflow-y: auto;
-      color: white;
-    }
-
-    .second-container {
-      position: fixed;
-      top: 0;
-      left: 270px; /* space for sidebar + padding */
-      right: 0;
-      height: 100vh;
-      padding: 20px;
-      overflow-y: auto;
-      color: white;
-      text-align: center;
-    }
-
-    marquee {
-      color: red;
-      font-size: 16px;
-    }
-
-    h2 {
-      font-weight: lighter;
-      color: white;
-      text-align: center;
+      background: black;
+      cursor: url('images/scratch/cursor.png'), auto;
     }
 
     img {
-      cursor: pointer;
+      cursor: none;
+    }
+
+    #custom-cursor {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <marquee behavior="scroll">Welcome to the Official Website of Scratching Tongues</marquee>
-    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto;" />
-    
-    <p style="color: red; text-align: center;">--Upcoming Shows--</p> 
-    <h2>6/27 - Kelly's Olympian</h2>
-    <h2>and maybe some links to socials/streaming at the bottom of this container</h2>
-  </div>
+  <img src="images/scratch/example-image.jpg" alt="Test Image" style="width: 200px;">
 
-  <div class="second-container">
-    <p>scratching tongues are josh, ben, patrick and aaron</p>
-    <p>located in Portland, Oregon</p>
-    <p>alien synth pop</p>
-    <p>*</p>
-
-    <img 
-      id="red-image"
-      src="images/scratch/red.jpg" 
-      style="width: 500px; height: auto; border: 2px dashed red;"
-      onclick="changeRedImage()"
-    />
-
-    <p></p>
-
-    <div style="text-align: center;">
-      <iframe 
-        style="border: 0; width: 350px; height: 470px;" 
-        src="https://bandcamp.com/EmbeddedPlayer/album=922207217/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/transparent=true/" 
-        seamless>
-        <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee">
-          I'm in Love with a Fever Bee by Scratching Tongues
-        </a>
-      </iframe>
-    </div>
-  </div>
+  <img id="custom-cursor" src="images/scratch/cokecan.gif" alt="custom cursor">
 
   <script>
-    const imageSources = [
-      "images/scratch/red.jpg",
-      "images/scratch/bw.jpg",
-      "images/scratch/band.JPG",
-      "images/scratch/guitars.jpg",
-      "images/scratch/keys.JPG",
-      "images/scratch/drums.jpg"
-    ];
+    const cursor = document.getElementById('custom-cursor');
 
-    let currentImageIndex = 0;
+    document.addEventListener('mousemove', function(e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
 
-    function changeRedImage() {
-      const img = document.getElementById("red-image");
-      currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-      img.src = imageSources[currentImageIndex];
-    }
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('mouseenter', () => {
+        cursor.style.display = 'block';
+      });
+      img.addEventListener('mouseleave', () => {
+        cursor.style.display = 'none';
+      });
+    });
   </script>
-
 </body>
 </html>

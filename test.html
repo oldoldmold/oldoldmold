@@ -5,7 +5,7 @@
   <style>
     body {
       background-color: rgb(9, 0, 129);
-      font-family: 'Courier New', 'monospace';
+      font-family: 'Courier New', monospace;
       margin: 0;
       padding: 0;
     }
@@ -23,6 +23,18 @@
       color: white;
     }
 
+    .second-container {
+      position: fixed;
+      top: 0;
+      left: 270px; /* space for sidebar + padding */
+      right: 0;
+      height: 100vh;
+      padding: 20px;
+      overflow-y: auto;
+      color: white;
+      text-align: center;
+    }
+
     marquee {
       color: red;
       font-size: 16px;
@@ -32,24 +44,13 @@
       font-weight: lighter;
       color: white;
       text-align: center;
-    }
-
-
-    .aligned-text {
-      position: fixed;
-      left: 300px;
-      top: 20px;
-      color: white;
       font-size: 16px;
-      text-align: center;
     }
 
     img {
       cursor: pointer;
     }
   </style>
- 
-
 </head>
 <body>
 
@@ -57,20 +58,27 @@
     <marquee behavior="scroll">Welcome to the Official Website of Scratching Tongues</marquee>
     <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto;" />
     
-  <p style="color: red; text-align: center;"
-<p> --Upcoming Shows-- </p> 
-    <h2>6/27 - Kelly's Olympian </h2>
-    <h2>and maybe some links to socials/streaming at the bottom of this container</h2>
+    <p style="color: red; text-align: center;">--Upcoming Shows--</p> 
+    <h2>7/24 - the waypost</h2>
+    <h2>8/1 - hawthorne hideaway</h2>
+    <div style="text-align: center;">
+      <p>*</p>
+      <iframe 
+      style="border: 0; width: 190px; height: 332px;" 
+      src="https://bandcamp.com/EmbeddedPlayer/album=922207217/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" 
+      seamless>
+      <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee">I'm in Love with a Fever Bee by Scratching Tongues</a>
+    </iframe>
+    </div>
+    <p></p>
   </div>
 
-  <div class="aligned-text"> *
-    <p>[example] scratching tongues are josh, ben, patrick and aaron</p>
+  <div class="second-container">
+    <p>scratching tongues are josh, ben, patrick and aaron</p>
     <p>located in Portland, Oregon</p>
     <p>alien synth pop</p>
-    <p></p>
     <p>*</p>
 
-    <!-- 👇 Clickable image -->
     <img 
       id="red-image"
       src="images/scratch/red.jpg" 
@@ -78,17 +86,12 @@
       onclick="changeRedImage()"
     />
 
-    <p>
-      and then down here it could be cover artwork that leads to that album/song on bandcamp. If I can figure it out, I might also be able to put a live player directly on the page but no promises lol
-    </p>
-    <p>I could also add more pages to navigate to like a contact page, updates page, and/or anything else you'd like</p>
+
+
+   
   </div>
 
-  <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee"><img src="images/scratch/feverbee.JPG" style="width: 250px; height: auto;"></a>
-
-  <!-- 🔁 JavaScript to toggle image -->
   <script>
-    // Array of image paths to cycle through
     const imageSources = [
       "images/scratch/red.jpg",
       "images/scratch/bw.jpg",
@@ -97,16 +100,12 @@
       "images/scratch/keys.JPG",
       "images/scratch/drums.jpg"
     ];
-  
+
     let currentImageIndex = 0;
-  
+
     function changeRedImage() {
       const img = document.getElementById("red-image");
-      
-      // Increment the index
       currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-  
-      // Set the new image
       img.src = imageSources[currentImageIndex];
     }
   </script>

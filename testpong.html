@@ -15,14 +15,12 @@
   display: block;
   margin: 0 auto;
   touch-action: none;
-  
 
     }
     body, canvas {
       background-color: rgb(9, 0, 129);
       font-family: 'Courier New', monospace;
       cursor: url('images/scratch/cursor.png'), auto;
-      text-align: center;
     }
     #hands {
         cursor: url('images/scratch/hands.png'), auto;
@@ -33,14 +31,7 @@
     <nav>
         <a href="test.html"><img src="images/scratch/back.png" style="height: 100px; width: auto;" alt="back" id="hands"></a>
     </nav>
-    <p></p>
-    <p></p>
-    <button onclick="openFullscreen()">play fullscreen 
-    </button>
-    <p></p>
-  <canvas id="pong" width="1000" height="600"></canvas>
-  
-
+  <canvas id="pong" width="1000" height="720"></canvas>
 <style></style>
   <script>
     const canvas = document.getElementById("pong");
@@ -77,11 +68,6 @@
       color: "RED",
       score: 0
     };
-    function openFullscreen() {
-  const elem = document.documentElement;
-  if (elem.requestFullscreen) elem.requestFullscreen();
-  else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen(); // iOS Safari
-}
 
     function drawRect(x, y, w, h, color) {
       ctx.fillStyle = color;
@@ -185,6 +171,7 @@
     const framePerSecond = 60;
     setInterval(game, 1000 / framePerSecond);
   
+
   </script>
 
 </body>

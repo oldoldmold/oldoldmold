@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <title>Pong Game</title>
   <style>
@@ -8,6 +9,12 @@
       display: block;
       margin: 0 auto;
       background: black;
+      width: 100%;
+  height: auto;
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+  touch-action: none;
 
     }
     body, canvas {
@@ -93,9 +100,13 @@
     function controlUserPaddle(evt) {
       user.y = evt.clientY - canvas.getBoundingClientRect().top - user.height/2;
     }
-
+    canvas.addEventListener("touchstart", e => e.preventDefault(), { passive: false });
+    canvas.addEventListener("touchmove", e => e.preventDefault(), { passive: false });
     canvas.addEventListener("mousemove", controlUserPaddle);
-
+    canvas.addEventListener("touchmove", function(evt) {
+  const touch = evt.touches[0];
+  user.y = touch.clientY - canvas.getBoundingClientRect().top - user.height / 2;
+});
     function collision(b, p) {
       b.top = b.y - b.radius;
       b.bottom = b.y + b.radius;

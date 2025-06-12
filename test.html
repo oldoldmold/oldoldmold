@@ -58,15 +58,29 @@
       z-index: 9999;
       display: none;
     }
-    
+
+
   </style>
 </head>
 <body>
 
   <div class="container">
     <marquee behavior="scroll">Welcome to the Official Website of Scratching Tongues</marquee>
-    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto;" />
+    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto;" id="exploding-img"/>
+    <script>
+      const img = document.getElementById('exploding-img');
     
+      img.addEventListener('click', () => {
+  
+        img.src = 'images/scratch/explode.gif';
+        img.style.pointerEvents = 'none'; // prevent repeated clicks
+        setTimeout(() => {
+      img.style.opacity ='0'; 
+    }, 800);
+
+
+    
+      ;})    </script>
     <p style="color: red; text-align: center;">--Upcoming Shows--</p> 
     <h2>7/24 - the waypost</h2>
     <h2>8/1 - hawthorne hideaway</h2>
@@ -82,6 +96,9 @@
   </div>
 
   <div class="second-container">
+    <a href="testpong.html">
+      <img src="images/scratch/tomato.gif" alt="Clickable Image">
+    </a>
     <p>scratching tongues are josh, ben, patrick and aaron</p>
     <p>located in Portland, Oregon</p>
     <p>alien synth pop</p>

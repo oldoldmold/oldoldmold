@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>the scratching tongues</title>
+  <title>scratching tongues</title>
   <style>
     body {
       background-color: rgb(9, 0, 129);
@@ -12,6 +12,7 @@
     }
     img {
       cursor: none; /* hide system cursor over image */
+      
     }
     .container {
       position: fixed;
@@ -59,6 +60,7 @@
       display: none;
     }
 
+  
 
   </style>
 </head>
@@ -82,34 +84,44 @@
     
       ;})    </script>
     <p style="color: red; text-align: center;">--Upcoming Shows--</p> 
+    <h2>7/20 - overlook porchfest</h2>
     <h2>7/24 - the waypost</h2>
     <h2>8/1 - hawthorne hideaway</h2>
+    <h2>8/16 - the shaku bar</h2>
     <div style="text-align: center;">
       <p>*</p>
-      <iframe 
-      style="border: 0; width: 190px; height: 332px;" 
-      src="https://bandcamp.com/EmbeddedPlayer/album=922207217/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" 
-      seamless>
-      <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee">I'm in Love with a Fever Bee by Scratching Tongues</a>
+      <iframe style="border: 0; width: 250px; height: 380px;" 
+      src="https://bandcamp.com/EmbeddedPlayer/album=922207217/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless>
+      <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee"
+      >I'm in Love with a Fever Bee by Scratching Tongues</a>
     </iframe>
+    <p>  </p>
+    <p> * </p>
+    <p>   </p>
     </div>
   </div>
 
   <div class="second-container">
+    <img src="images/scratch/welcome_cat.gif" 
+    style="height: 50px; width: auto;"/>
+   
+    <p>scratching tongues are josh, ben, patrick and aaron</p>
+    <p>alien synth pop located in Portland, Oregon</p>
+    <p>*</p>
     <a href="testpong.html">
       <img src="images/scratch/tomato.gif" alt="Clickable Image">
-    </a>
-    <p>scratching tongues are josh, ben, patrick and aaron</p>
-    <p>located in Portland, Oregon</p>
-    <p>alien synth pop</p>
-    <p>*</p>
 
+    </a>
+    <p></p>
+<img src="images/scratch/stars.gif"style="height: 500px; width: 150px;"/>
     <img 
       id="red-image"
       src="images/scratch/red.jpg" 
-      style="width: 500px; height: auto; border: 2px dashed red;"
+      style="width: auto; height: 500px; border: 2px dashed red;"
       onclick="changeRedImage()"
     />
+    <img src="images/scratch/stars.gif"
+    style="height: 500px; width: 150px;"/>
     <p>*</p>
     <a href="https://www.instagram.com/scratchingtongues/" target="_blank">
       <img src="images/scratch/ig.PNG" alt="Clickable Image" style="width: 50px; height: auto;">
@@ -123,7 +135,16 @@
     <a href="https://music.apple.com/ca/artist/scratching-tongues/1514594194" target="_blank">
       <img src="images/scratch/apple.png" alt="Clickable Image" style="width: 50px; height: auto;">
     </a>
-
+    <div> * </div>
+    <p> contact us </p>
+    <div> </div>
+<a href="testcontact.html">
+  <img src="images/scratch/contacvty.gif">
+</a>
+<div> </div>
+<p> </p>
+<p> * </p>
+<div>  </div>
     <img id="custom-cursor" src="images/scratch/cokecan.gif" alt="Custom Cursor">
   </div>
 
@@ -147,7 +168,7 @@
     });
 
     const imageSources = [
-      "images/scratch/red.jpg",
+      "images/scratch/red.jpg",  
       "images/scratch/bw.jpg",
       "images/scratch/band.JPG",
       "images/scratch/guitars.jpg",
@@ -161,6 +182,8 @@
       const img = document.getElementById("red-image");
       currentImageIndex = (currentImageIndex + 1) % imageSources.length;
       img.src = imageSources[currentImageIndex];
+      style= "height:500px;width:auto;"
+
     }
   </script>
 

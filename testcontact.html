@@ -1,32 +1,125 @@
-<style>
-body {
+<!DOCTYPE html>
+<html>
+<head>
+  <title>scratching tongues</title>
+    <style>
+       img {
+      cursor: none; /* hide system cursor over image */
+      
+    }
+    #custom-cursor {
+      position: fixed;
+      width: 32px; /* adjust to your image size */
+      height: 32px;
+      pointer-events: none; /* So it doesn't block clicks */
+      z-index: 9999;
+      display: none;
+    }
+    body {
   text-align: center;
-  font-family: 'Courier New', monospaced;
+  font-family: 'Courier New', monospace;
+  font-weight: lighter;
   margin: 35px 0 20px 0 !important;
   color: white;
-  background-color: blue;
-
-    
+  background-color:  rgb(9, 0, 129);
+  cursor: url('images/scratch/cursor.png'), auto;
 }
-</style>
+
+
+  
+  .form-control {
+  width: 90%;
+  max-width: 500px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: lighter;
+  margin: 10px auto;
+  border: 2px dashed red;
+  background-color: black;
+  color: white;
+  font-family: 'Courier New', monospace;
+  display: block;
+}
+
+textarea.form-control {
+  height: 200px;
+  resize: vertical;
+}
+
+button.btn {
+  font-size: 18px;
+  padding: 12px 24px;
+  background-color: red;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  margin-top: 15px;
+}
+
+button.btn:hover {
+  background-color: darkred;
+}
+input, textarea, button, img {
+  cursor: none;
+}
+
+    </style>
+
+   </div>
+
+  
 <body>
-<div class="container">
-  <h1>contact us</h1>
-  <form target="_blank" action="https://formsubmit.co/scratchingtongues@gmail.com" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="col">
-          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+  <div>  
+    <img id="custom-cursor" src="images/scratch/cokecan.gif" alt="Custom Cursor">
+  </div>
+  <a href="test.html"><img src="images/scratch/homepage.gif"  alt="contact"></a>
+
+  <div class="container">
+    <h1>contact us</h1>
+    <form target="_blank" action="https://formsubmit.co/scratchingtongues@gmail.com" method="POST">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col">
+            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+          </div>
+          <div class="col">
+            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-  </form>
+      <div class="form-group">
+        <textarea placeholder="Your Message" class="form-control" name="message" rows="10" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
+    </form>
+    <img src="images/scratch/happy_1.gif" style="margin-bottom: 10px;">
+    <p></p>
+    <img src="images/scratch/dj.gif" style="height: 100px; width:auto;">
+  </div>
 </div>
-</body>
+   <script>
+    const cursor = document.getElementById('custom-cursor');
+  
+    // Move the custom cursor with the mouse
+    document.addEventListener('mousemove', function(e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+  
+    // Show custom cursor on certain interactive elements
+    const targets = document.querySelectorAll('img, input, textarea, button');
+  
+    targets.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.display = 'block';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.display = 'none';
+      });
+    });
+  </script>
+
+  </body>
+   
+</html>

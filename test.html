@@ -10,10 +10,11 @@
       margin: 0;
       padding: 0;
       cursor: url('images/scratch/cursor.png'), auto;
+      overflow-x: hidden;
     }
 
     img {
-      cursor: none; /* hide system cursor over image */
+      cursor: none;
       max-width: 100%;
       height: auto;
     }
@@ -70,23 +71,25 @@
       display: none;
     }
 
-    /* Responsive layout for small screens */
-    @media (max-width: 600px) {
-      .container {
+    /* MOBILE FIX */
+    @media (max-width: 768px) {
+      .container, .second-container {
         position: relative;
         width: 100%;
         height: auto;
+        padding: 15px;
+      }
+
+      .container {
         border-right: none;
         border-bottom: 2px dashed red;
       }
 
       .second-container {
-        position: relative;
         left: 0;
         top: 0;
-        width: 100%;
-        height: auto;
-        padding: 10px;
+        right: 0;
+        padding-top: 0;
       }
 
       iframe {
@@ -94,13 +97,12 @@
         height: auto;
       }
 
-      marquee, h2 {
+      h2, marquee {
         font-size: 14px;
       }
 
-      img {
-        max-width: 100%;
-        height: auto;
+      body {
+        overflow-x: hidden;
       }
     }
 
@@ -114,87 +116,101 @@
   </style>
 </head>
 <body>
+<!-- content goes here -->
+
 
   <div class="container">
     <marquee behavior="scroll">Welcome to the Official Website of Scratching Tongues</marquee>
-    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" id="exploding-img"/>
+    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto;" id="exploding-img"/>
     <script>
       const img = document.getElementById('exploding-img');
+    
       img.addEventListener('click', () => {
+  
         img.src = 'images/scratch/explode.gif';
-        img.style.pointerEvents = 'none';
+        img.style.pointerEvents = 'none'; // prevent repeated clicks
         setTimeout(() => {
-          img.style.opacity = '0';
-        }, 800);
-      });
-    </script>
-    <p style="color: red; text-align: center;">--Upcoming Shows--</p>
+      img.style.opacity ='0'; 
+    }, 800);
+
+
+    
+      ;})    </script>
+    <p style="color: red; text-align: center;">--Upcoming Shows--</p> 
     <h2>7/20 - overlook porchfest</h2>
     <h2>7/24 - the waypost</h2>
     <h2>8/1 - hawthorne hideaway</h2>
     <h2>8/16 - the shaku bar</h2>
     <div style="text-align: center;">
       <p>*</p>
-      <iframe 
-        src="https://bandcamp.com/EmbeddedPlayer/album=922207217/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" 
-        seamless>
-      </iframe>
-      <p>*</p>
+      <iframe style="border: 0; width: 250px; height: 380px;" 
+      src="https://bandcamp.com/EmbeddedPlayer/album=922207217/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless>
+      <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee"
+      >I'm in Love with a Fever Bee by Scratching Tongues</a>
+    </iframe>
+    <p>  </p>
+    <p> * </p>
+    <p>   </p>
     </div>
   </div>
 
   <div class="second-container">
-    <img src="images/scratch/welcome_cat.gif" style="height: 50px;" />
+    <img src="images/scratch/welcome_cat.gif" 
+    style="height: 50px; width: auto;"/>
+   
     <p>scratching tongues are josh, ben, patrick and aaron</p>
     <p>alien synth pop located in Portland, Oregon</p>
     <p>*</p>
-
     <a href="testpong.html">
       <img src="images/scratch/tomato.gif" alt="Clickable Image">
-    </a>
 
+    </a>
     <p></p>
-    <img src="images/scratch/stars.gif" style="height: 500px; width: 150px;" />
+<img src="images/scratch/stars.gif"style="height: 500px; width: 150px;"/>
     <img 
       id="red-image"
       src="images/scratch/red.jpg" 
-      style="height: 500px;"
-      onclick="changeRedImage()" 
+      style="width: auto; height: 500px; border: 2px dashed red;"
+      onclick="changeRedImage()"
     />
-    <img src="images/scratch/stars.gif" style="height: 500px; width: 150px;" />
+    <img src="images/scratch/stars.gif"
+    style="height: 500px; width: 150px;"/>
     <p>*</p>
-
     <a href="https://www.instagram.com/scratchingtongues/" target="_blank">
-      <img src="images/scratch/ig.PNG" alt="Instagram" style="width: 50px;">
+      <img src="images/scratch/ig.PNG" alt="Clickable Image" style="width: 50px; height: auto;">
     </a>
     <a href="https://scratchingtongues.bandcamp.com" target="_blank">
-      <img src="images/scratch/bc.PNG" alt="Bandcamp" style="width: 50px;">
+      <img src="images/scratch/bc.PNG" alt="Clickable Image" style="width: 50px; height: auto;">
     </a>
     <a href="https://open.spotify.com/artist/3FvJUBZdNzkRa4IEHKXNAr?si=eEyqzenITGyDtjJ9HSb2QQ" target="_blank">
-      <img src="images/scratch/spotify.png" alt="Spotify" style="width: 50px;">
+      <img src="images/scratch/spotify.png" alt="Clickable Image" style="width: 50px; height: auto;">
     </a>
     <a href="https://music.apple.com/ca/artist/scratching-tongues/1514594194" target="_blank">
-      <img src="images/scratch/apple.png" alt="Apple Music" style="width: 50px;">
+      <img src="images/scratch/apple.png" alt="Clickable Image" style="width: 50px; height: auto;">
     </a>
+    <div> * </div>
+    <p> contact us </p>
+    <div> </div>
+<a href="testcontact.html">
+  <img src="images/scratch/contacvty.gif" style="margin-bottom: 50px;">
+</a>
 
-    <div>*</div>
-    <p>contact us</p>
 
-    <a href="testcontact.html">
-      <img src="images/scratch/contacvty.gif" style="margin-bottom: 50px;" alt="Contact">
-    </a>
 
-    <img id="custom-cursor" src="images/scratch/cokecan.gif"  alt="Custom Cursor">
+<div>  </div>
+    <img id="custom-cursor" src="images/scratch/cokecan.gif" alt="Custom Cursor">
   </div>
 
   <script>
     const cursor = document.getElementById('custom-cursor');
 
+    // Move the custom cursor with the mouse
     document.addEventListener('mousemove', function(e) {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
     });
 
+    // Show custom cursor only when hovering over images
     document.querySelectorAll('img').forEach(img => {
       img.addEventListener('mouseenter', () => {
         cursor.style.display = 'block';
@@ -205,7 +221,7 @@
     });
 
     const imageSources = [
-      "images/scratch/red.jpg",
+      "images/scratch/red.jpg",  
       "images/scratch/bw.jpg",
       "images/scratch/band.JPG",
       "images/scratch/guitars.jpg",
@@ -219,6 +235,8 @@
       const img = document.getElementById("red-image");
       currentImageIndex = (currentImageIndex + 1) % imageSources.length;
       img.src = imageSources[currentImageIndex];
+      style= "height:500px;width:auto;"
+
     }
   </script>
 

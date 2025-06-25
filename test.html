@@ -112,22 +112,17 @@
 }
 
 
-    /* Hide custom cursor on touch devices */
-    @media (pointer: coarse) {
-      #custom-cursor {
-        display: none !important;
-      }
-    }
 
   </style>
 </head>
 <body>
-<!-- content goes here -->
 
+<img id="custom-cursor" src="images/scratch/cokecan.gif" alt="Custom Cursor">
 
   <div class="container">
+   
     <marquee behavior="scroll">Welcome to the Official Website of Scratching Tongues</marquee>
-    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto;" id="exploding-img"/>
+    <img src="images/scratch/JPEG image-4A79-A744-B9-0.jpeg" style="width: 250px; height: auto; display: block; margin: 0 auto" id="exploding-img"/>
     <script>
       const img = document.getElementById('exploding-img');
     
@@ -161,6 +156,7 @@
   </div>
 
   <div class="second-container">
+    
     <img src="images/scratch/welcome_cat.gif" 
     style="height: 50px; width: auto;"/>
    
@@ -169,8 +165,10 @@
     <p>*</p>
     <a href="testpong.html">
       <img src="images/scratch/tomato.gif" alt="Clickable Image">
-
     </a>
+    <a href="testmv.html">
+      <img src="images/scratch/tv.gif" style="width:50px; height: auto;" >
+      </a>
     <p></p>
 <img src="images/scratch/stars.gif" class="stars-image" style="height: 500px; width: 150px;"/>
     <img 
@@ -196,27 +194,27 @@
     </a>
     <div> * </div>
     <p> contact us </p>
+    <p>↓</p>
     <div> </div>
 <a href="testcontact.html">
-  <img src="images/scratch/contacvty.gif" style="margin-bottom: 50px;">
+  <img src="images/scratch/email.gif" style="margin-bottom: 50px;">
 </a>
 
 
 
-<div>  </div>
-    <img id="custom-cursor" src="images/scratch/cokecan.gif" alt="Custom Cursor">
+
   </div>
 
   <script>
     const cursor = document.getElementById('custom-cursor');
-
+  
     // Move the custom cursor with the mouse
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function (e) {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
     });
-
-    // Show custom cursor only when hovering over images
+  
+    // Show custom cursor when hovering over images
     document.querySelectorAll('img').forEach(img => {
       img.addEventListener('mouseenter', () => {
         cursor.style.display = 'block';
@@ -225,6 +223,8 @@
         cursor.style.display = 'none';
       });
     });
+ 
+  
 
     const imageSources = [
       "images/scratch/red.jpg",  

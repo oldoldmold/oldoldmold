@@ -1,71 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>scratching tongues</title>
+  <head>
+    <title>scratching tongues</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-       img {
-      cursor: none; /* hide system cursor over image */
-      
-    }
-    #custom-cursor {
-      position: fixed;
-      width: 32px; /* adjust to your image size */
-      height: 32px;
-      pointer-events: none; /* So it doesn't block clicks */
-      z-index: 9999;
-      display: none;
-    }
-    body {
-  text-align: center;
-  font-family: 'Courier New', monospace;
-  font-weight: lighter;
-  margin: 35px 0 20px 0 !important;
-  color: white;
-  background-color:  rgb(9, 0, 129);
-  cursor: url('images/scratch/cursor.png'), auto;
-}
-
-
+      img, input, textarea, button {
+        cursor: none;
+      }
   
-  .form-control {
-  width: 90%;
-  max-width: 500px;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: lighter;
-  margin: 10px auto;
-  border: 2px dashed red;
-  background-color: black;
-  color: white;
-  font-family: 'Courier New', monospace;
-  display: block;
-}
+      #custom-cursor {
+        position: fixed;
+        width: 32px;
+        height: 32px;
+        pointer-events: none;
+        z-index: 9999;
+        display: none;
+      }
+  
+      body {
+        text-align: center;
+        font-family: 'Courier New', monospace;
+        font-weight: lighter;
+        margin: 35px 0 20px 0 !important;
+        color: white;
+        background-color: rgb(9, 0, 129);
+        cursor: url('images/scratch/cursor.png'), auto;
+      }
 
-textarea.form-control {
-  height: 200px;
-  resize: vertical;
-}
-
-button.btn {
-  font-size: 18px;
-  padding: 12px 24px;
-  background-color: red;
-  color: rgb(0, 0, 0);
-  border: none;
-  cursor: pointer;
-  font-family: 'Courier New', monospace;
-  margin-top: 15px;
-}
-
-button.btn:hover {
-  background-color: darkred;
-}
-input, textarea, button, img {
-  cursor: none;
-}
-
+      h1 {font-family: 'Courier New', monospace;
+    font-weight: lighter;
+  }
+  
+      .form-control {
+        width: 90%;
+        max-width: 500px;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: lighter;
+        margin: 10px auto;
+        border: 2px dashed red;
+        background-color: black;
+        color: white;
+        font-family: 'Courier New', monospace;
+        display: block;
+      }
+  
+      textarea.form-control {
+        height: 200px;
+        resize: vertical;
+      }
+  
+      button.btn {
+        font-size: 18px;
+        padding: 12px 24px;
+        background-color: red;
+        color: black;
+        border: none;
+        font-family: 'Courier New', monospace;
+        margin-top: 15px;
+      }
+  
+      button.btn:hover {
+        background-color: darkred;
+      }
+  
+      @media (max-width: 768px) {
+        input, textarea, button, img {
+          cursor: none;
+        }
+  
+        body {
+          overflow-x: hidden;
+        }
+  
+        
+      }
+  
+      @media (pointer: coarse) {
+        #custom-cursor {
+          display: none !important;
+        }
+      }
     </style>
-
+  </head>
+  
    </div>
 
   
@@ -77,6 +95,7 @@ input, textarea, button, img {
 
   <div class="container">
     <h1>contact us</h1>
+    <img src="images/scratch/contacvty.gif">
     <form target="_blank" action="https://formsubmit.co/scratchingtongues@gmail.com" method="POST">
       <div class="form-group">
         <div class="form-row">
@@ -93,11 +112,10 @@ input, textarea, button, img {
       </div>
       <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
     </form>
-    <img src="images/scratch/happy_1.gif" style="margin-bottom: 10px;">
-    <p></p>
-    <img src="images/scratch/dj.gif" style="height: 100px; width:auto;">
+   
+    <img src="images/scratch/dj.gif" style="height: 100px; width:auto; margin-top: 30px;">
   </div>
-</div>
+
    <script>
     const cursor = document.getElementById('custom-cursor');
   

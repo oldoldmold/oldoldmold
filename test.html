@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>scratching tongues</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background-color: rgb(9, 0, 129);
@@ -75,17 +75,24 @@
     /* MOBILE FIX */
     @media (max-width: 768px) {
       .container, .second-container {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 15px;
+       /* position: relative; */
+        width: 99%;
+       /* height: auto; */
+        padding: 10px;
       }
-
+      img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* prevents inline spacing issues */
+}
       .container {
         border-right: none;
         border-bottom: 2px dashed red;
       }
 
+      * {
+  box-sizing: border-box;
+}
       .second-container {
         left: 0;
         top: 0;
@@ -94,7 +101,7 @@
       }
 
       iframe {
-        width: 95% !important;
+        width: 100% !important;
         height: auto;
       }
 

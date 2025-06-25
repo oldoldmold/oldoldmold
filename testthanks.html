@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>scratching tongues</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: rgb(9, 0, 129);
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+      cursor: url('images/scratch/cursor.png'), auto;
+      overflow-x: hidden;
+    }
+
+    img {
+      cursor: none;
+      max-width: 100%;
+      height: auto;
+      display: block; 
+      margin: 0 auto
+    }
+
+    #custom-cursor {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <img id="custom-cursor" src="images/scratch/cokecan.gif" alt="Custom Cursor">
+    
+    <a href="test.html">
+<img src="images/scratch/back3.gif" style="width:80px; height: auto; margin-top: 50px;" >
+</a>
+<p></p>
+<img src="images/scratch/thanks.gif"  style="margin-top:200px; width: 300px; height: auto;" >
+>
+</body>
+
+<script>
+    const cursor = document.getElementById('custom-cursor');
+  
+    // Move the custom cursor with the mouse
+    document.addEventListener('mousemove', function (e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+  
+    // Show custom cursor when hovering over images
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('mouseenter', () => {
+        cursor.style.display = 'block';
+      });
+      img.addEventListener('mouseleave', () => {
+        cursor.style.display = 'none';
+      });
+    });
+ </script>

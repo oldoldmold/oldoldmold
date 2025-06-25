@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>scratching tongues</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
     body {
       background-color: rgb(9, 0, 129);
@@ -75,24 +75,17 @@
     /* MOBILE FIX */
     @media (max-width: 768px) {
       .container, .second-container {
-       /* position: relative; */
-        width: 99%;
-       /* height: auto; */
-        padding: 10px;
+        position: relative;
+        width: 98%;
+        height: auto;
+        padding: 15px;
       }
-      img {
-  max-width: 100%;
-  height: auto;
-  display: block; /* prevents inline spacing issues */
-}
+
       .container {
         border-right: none;
         border-bottom: 2px dashed red;
       }
 
-      * {
-  box-sizing: border-box;
-}
       .second-container {
         left: 0;
         top: 0;
@@ -101,7 +94,7 @@
       }
 
       iframe {
-        width: 100% !important;
+        width: 95% !important;
         height: auto;
       }
 
@@ -152,7 +145,7 @@
     <h2>8/16 - the shaku bar</h2>
     <div style="text-align: center;">
       <p>*</p>
-      <iframe style="border: 0; width: 250px; height: 380px; max-width: 100%;" 
+      <iframe style="border: 0; width: 250px; height: 380px;" 
       src="https://bandcamp.com/EmbeddedPlayer/album=922207217/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false/transparent=true/" seamless>
       <a href="https://scratchingtongues.bandcamp.com/album/im-in-love-with-a-fever-bee"
       >I'm in Love with a Fever Bee by Scratching Tongues</a>
@@ -172,8 +165,7 @@
     <p>alien synth pop located in Portland, Oregon</p>
     <p>*</p>
     <a href="testpong.html">
-      <img src="images/scratch/tomato.gif" alt="Clickable Image"
-      style="max-height: 100%;">
+      <img src="images/scratch/tomato.gif" alt="Clickable Image">
     </a>
     <a href="testmv.html">
       <img src="images/scratch/tv.gif" style="width:50px; height: auto;" >
@@ -257,4 +249,3 @@
 
 </body>
 </html>
-
